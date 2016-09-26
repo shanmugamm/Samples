@@ -99,6 +99,7 @@ namespace CloudFoundrySingleSignon.Controllers
         private string GetJwtSamplesUrl(HttpContext httpContext)
         {
             string jwtappsHostname = System.Environment.GetEnvironmentVariable("JWTAPPS_HOSTNAME");
+            System.Console.WriteLine("JWTAPPS 1: {}", jwtappsHostname);
             if (string.IsNullOrEmpty(jwtappsHostname)) {
               string hostName = httpContext.Request.Host.Host;
               int indx = hostName.IndexOf('.');
@@ -108,6 +109,7 @@ namespace CloudFoundrySingleSignon.Controllers
               }
               jwtappsHostname = JWTAPPS_HOSTNAME + hostName.Substring(indx);
             }
+            System.Console.WriteLine("JWTAPPS 2: {}", jwtappsHostname);
             return "http://" + jwtappsHostname + "/api/values";
         }
     }
