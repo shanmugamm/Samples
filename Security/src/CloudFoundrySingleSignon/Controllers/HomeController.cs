@@ -98,13 +98,17 @@ namespace CloudFoundrySingleSignon.Controllers
         const string JWTAPPS_HOSTNAME = "jwtauth";
         private string GetJwtSamplesUrl(HttpContext httpContext)
         {
-            string hostName = httpContext.Request.Host.Host;
-            int indx = hostName.IndexOf('.');
-            if (indx < 0)
-            {
-                return hostName;
+            string jwtappsHostname = System.Environment.GetEnvironmentVariable("JWTAPPS_HOSTNAME");
+            if (string.IsNullOrEmpty(jwtappsHostname)) {
+              string hostName = httpContext.Request.Host.Host;
+              int indx = hostName.IndexOf('.');
+              if (indx < 0)
+              {
+                  return hostName;
+              }
+              jwtappsHostname = JWTAPPS_HOSTNAME + hostName.Substring(indx);
             }
-            return "http://" + JWTAPPS_HOSTNAME + hostName.Substring(indx) + "/api/values";
+            return "http://" + jwtappsHostname + "/api/values";
         }
     }
 }
