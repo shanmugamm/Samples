@@ -19,7 +19,6 @@ namespace StructureMapCloundFoundry
     {
         protected void Application_Start()
         {
-            System.Environment.SetEnvironmentVariable("VCAP_SERVICES", "{\"p-config-server\":[{\"credentials\":{\"uri\":\"https://config-59cfb7fe-6c88-4497-acd1-0db5fd7b87ea.cfapps.pcf1.vc1.pcf.dell.com\",\"client_secret\":\"M0ofPZxjCll3\",\"client_id\":\"p-config-server-526a125b-bd3f-495e-84c8-55f4656d5b28\",\"access_token_uri\":\"https://p-spring-cloud-services.uaa.sys.pcf1.vc1.pcf.dell.com/oauth/token\"},\"syslog_drain_url\":null,\"volume_mounts\":[],\"label\":\"p-config-server\",\"provider\":null,\"plan\":\"standard\",\"name\":\"TestConfigServer\",\"tags\":[\"configuration\",\"spring-cloud\"]}]}");
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
